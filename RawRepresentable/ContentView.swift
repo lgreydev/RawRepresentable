@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        @AppStorage("skillLevel") var SkillLevel: SkillLevel = .beginner
+        
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
