@@ -9,15 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        @AppStorage("skillLevel") var SkillLevel: SkillLevel = .beginner
+        @AppStorage("skillLevel") var skillLevel: SkillLevel = .beginner
         
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            Form {
+                Picker("Skill Level", selection: $skillLevel) {
+                    ForEach(SkillLevel.allCases) { skillLevel in
+                        Text(skillLevel.rawValue.capitalized)
+                    }
+                }
+            }
+            .navigationTitle("Setting")
         }
-        .padding()
+        .onAppear() {
+            print(URL.libraryDirectory.appending(path:"Preferences").path())
+        }
     }
 }
 

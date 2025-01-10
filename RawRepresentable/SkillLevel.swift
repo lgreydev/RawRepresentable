@@ -8,7 +8,7 @@
 import Foundation
 
 enum SkillLevel: String, Identifiable, CaseIterable {
-    var id: String { rawValue }
+    var id: Self { self }
     case beginner
     case novice
     case intermediate
