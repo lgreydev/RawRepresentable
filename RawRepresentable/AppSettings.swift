@@ -10,7 +10,7 @@ import Foundation
 struct AppSettings: Codable {
     var name = ""
     var allowNotifications = false
-    var skillLavel: SkillLevel = .beginner
+    var skillLevel: SkillLevel = .beginner
     
     init() {}
     
@@ -24,14 +24,14 @@ struct AppSettings: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
         self.allowNotifications = try container.decode(Bool.self, forKey: .allowNotifications)
-        self.skillLavel = try container.decode(SkillLevel.self, forKey: .skillLavel)
+        self.skillLevel = try container.decode(SkillLevel.self, forKey: .skillLavel)
     }
     
     func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.name, forKey: .name)
         try container.encode(self.allowNotifications, forKey: .allowNotifications)
-        try container.encode(self.skillLavel, forKey: .skillLavel)
+        try container.encode(self.skillLevel, forKey: .skillLavel)
     }
 }
 
