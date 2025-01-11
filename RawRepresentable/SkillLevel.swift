@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SkillLevel: String, Identifiable, CaseIterable {
+enum SkillLevel: String, Identifiable, CaseIterable, Codable {
     var id: Self { self }
     case beginner
     case novice
